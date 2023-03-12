@@ -1,25 +1,27 @@
 #include <iostream>
-#include "LinkedList.h"
 
 
-LinkedList::LinkedList() {
+template <typename T>
+LinkedList<T>::LinkedList() {
     head = nullptr;
     tail = nullptr;
     num_nodes = 0;
 }
 
-LinkedList::~LinkedList() {
-    Node * index = head;
+template <typename T>
+LinkedList<T>::~LinkedList() {
+    auto index = head;
     while (index != nullptr) {
-        Node * next = index->next;
+        auto next = index->next;
         delete index;
         index = next;
     }
 }
 
-Node * LinkedList::insert_back(int val) {
+template <typename T>
+Node<T> * LinkedList<T>::insert_back(T val) {
     // IMPLEMENTATION REQUIRED
-    auto new_node = new Node(val);
+    auto new_node = new Node<T>(val);
     if(tail != nullptr) {
         tail->next = new_node;
     } else { //This means the list is empty so we are inserting at both the head and the tail
@@ -30,8 +32,9 @@ Node * LinkedList::insert_back(int val) {
     return tail;
 }
 
-Node * LinkedList::insert_front(int val) {
-    auto new_node = new Node(val);
+template <typename T>
+Node<T> * LinkedList<T>::insert_front(T val) {
+    auto new_node = new Node<T>(val);
     new_node->next = head;
     head = new_node;
     if (tail == nullptr){ //this means the list is empty so we are inserting at both the head and the tail
@@ -40,10 +43,11 @@ Node * LinkedList::insert_front(int val) {
     return head;
 }
 
-void LinkedList::print_list() {
+template <typename T>
+void LinkedList<T>::print_list() {
     auto index = head;
     while (index != nullptr) {
-        std::cout << *(index->data) << ", ";
+        std::cout << index->data << ", ";
         index = index->next;
     }
     std::cout << std::endl;

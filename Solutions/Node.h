@@ -2,20 +2,22 @@
 #define NODE_H
 #include "Integer.h"
 
+template <typename T> class LinkedList;
+
+
+template <typename T>
 class Node {
     private:
-        Integer* data;
+        T data;
         Node* next;
 
     public:
         Node() = delete;
-        Node(int);
-
-        // Destructor for Node class, think about why we need a destructor here, when it will be called
-        // and what it should do.
-        ~Node();
+        Node(T val): data(val) {
+            next = nullptr; 
+        };
         
-        friend class LinkedList;
+        friend class LinkedList<T>;
 };
 
 

@@ -1,28 +1,33 @@
 #include <iostream>
-#include "LinkedList.h"
 
 
-LinkedList::LinkedList() {
+
+template <typename T>
+LinkedList<T>::LinkedList() {
     head = nullptr;
     tail = nullptr;
     num_nodes = 0;
 }
 
-LinkedList::~LinkedList() {
+template <typename T>
+LinkedList<T>::~LinkedList() {
     // IMPLEMENTATION REQUIRED
 }
 
-Node * LinkedList::insert_back(int val) {
-    // IMPLEMENTATION REQUIRED
-    return nullptr;
-}
-
-Node * LinkedList::insert_front(int val) {
+template <typename T>
+Node<T> * LinkedList<T>::insert_back(T val) {
     // IMPLEMENTATION REQUIRED
     return nullptr;
 }
 
-void LinkedList::print_list() {
+template <typename T>
+Node<T> * LinkedList<T>::insert_front(T val) {
+    // IMPLEMENTATION REQUIRED
+    return nullptr;
+}
+
+template <typename T>
+void LinkedList<T>::print_list() {
     // IMPLEMENTATION REQUIRED
 }
         
